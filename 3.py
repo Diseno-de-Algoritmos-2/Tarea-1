@@ -38,7 +38,7 @@ def friend_bfs(graph, start):
             for neighbor in friendsOfFriend:
                 if neighbor not in visited:
                     queue.append(neighbor) # Enqueue
-            2
+                    
     return invited
 
 def friends_meeting(graph, friendList):
