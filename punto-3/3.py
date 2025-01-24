@@ -178,7 +178,7 @@ def friends_meeting(graph, friendList):
 if __name__ == '__main__':
 
     graph = read_input()
-    meetings = friends_meeting(graph, list(graph.keys())) # Es posible
+    meetings = friends_meeting(graph, list(graph.keys()))
     write_output(meetings)    
 
 
