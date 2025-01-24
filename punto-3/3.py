@@ -1,3 +1,11 @@
+# Daniel vargas
+# Santiago Bobadilla
+# Lina Ariza
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# DESCRIPCIÓN DEL PROBLEMA
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # 3. Juan quiere invitar a sus amigos a conocer su nuevo apartamento. Sin embargo tiene la
 # dificultad de que sus amigos son algo conflictivos y entonces sabe que varias parejas de
 # amigos se han peleado entre ellos.
@@ -5,6 +13,70 @@
 # Debido a esto, tomó la decisión de organizar dos reuniones. Diseñe un algoritmo que
 # determine si es posible distribuir a los amigos de Juan en dos grupos de tal manera
 # que dentro de cada reunión no haya parejas de personas que se hayan peleado entre ellas.
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# DATOS DE ENTRADA
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# La entrada consiste en un archivo de texto llamado input.txt que contiene la información.
+# La estructura del archivo es la siguiente:
+#   Nodo: Amigo1: Amigo2, Amigo3, Amigo4, Amigo5
+#   Nodo: Amigo1: Amigo3, Amigo4
+#   Nodo: Amigo1: Amigo2
+# Para cada línea, el primer amigo es el nodo y los amigos que le siguen son los amigos.
+# por tanto, para leer el archivo vamos linea por linea y separamos el nodo de los amigos
+# con el caracter ':'. Luego separamos los amigos con el caracter ','.
+
+
+import os
+
+# Obtenemos la ruta del archivo actual (ruta relativa a la ubicación del archivo dentro del computador).
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# Añadimos a la ruta del archivo que se va a leer.
+PATH = os.path.join(current_dir, 'input.txt')
+
+# Función para leer el archivo de texto y obtener los datos de entrada.
+def read_input():
+
+    # Abrir el archivo en modo lectura.
+    file = open(PATH, 'r')
+
+    # Leer las líneas del archivo.
+    lines = file.readlines()
+
+    # Vamos a estructurar el grafo en un diccionario.
+    graph = {}
+
+    # Recorremos las líneas del archivo.
+    for line in lines:
+        
+        # Eliminamos los espacios en blanco al inicio y al final de la línea; y separamos el nodo de los amigos.
+        line = line.strip()
+        friend, friends = line.split(':')
+
+        # Eliminamos los espacios en blanco al inicio y al final de los amigos; y separamos los amigos.
+        friend = friend.strip()
+        friends = friends.split(',')
+
+        # Eliminamos los espacios en blanco al inicio y al final de cada amigo; y los agregamos al grafo.
+        friends = [f.strip() for f in friends]
+        graph[friend] = set(friends)
+    
+    # Cerramos el archivo y retornamos el grafo.
+    file.close()
+    return graph
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# DATOS DE SALIDA
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ALGORITMO DE SOLUCIÓN
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Estrategia:
 
@@ -15,7 +87,6 @@
 #    recorre el grafo una segunda vez ver si todos los amigos faltantes se llevan bien entre ellos
 #    para formar la segunda reunión
 # 4. Si no se puede formar la segunda reunión, entonces no es posible organizar las dos reuniones
-
 
 from collections import deque # Queue
 
@@ -73,41 +144,10 @@ def friends_meeting(graph, friendList):
     else:
         print('No es posible organizar las dos reuniones')
         print()
-    
-    
-    
-    
-    
-# Grafo1: no es posible organizar las dos reuniones
-graph1 = {
-    'Juan': {'Pedro', 'Maria'},
-    'Pedro': {'Juan'},
-    'Maria': {'Juan', 'Ana'},
-    'Carlos': {'Ana'},
-    'Ana': {'Maria', 'Carlos'}
-}
-
-# Grafo2: es posible organizar las dos reuniones, porque todos son amigos entre si
-graph2 = {
-    'Juan': {'Pedro', 'Maria', 'Carlos', 'Ana'},
-    'Pedro': {'Juan', 'Maria', 'Carlos', 'Ana'},
-    'Maria': {'Juan', 'Pedro', 'Carlos', 'Ana'},
-    'Carlos': {'Juan', 'Pedro', 'Maria', 'Ana'},
-    'Ana': {'Juan', 'Pedro', 'Maria', 'Carlos'}
-}
-
-# Grafo 3: es posible organizar las dos reuniones (aqui hay dos posibles soluciones)
-graph3 = {
-    'Juan': {'Pedro', 'Maria', 'Carlos'},
-    'Carlos': {'Juan'},
-    'Pedro': {'Juan', 'Maria'},
-    'Maria': {'Juan', 'Pedro'}
-}
 
 
-friends_meeting(graph1, list(graph1.keys())) # No es posible
-friends_meeting(graph2, list(graph2.keys())) # Es posible
-friends_meeting(graph3, list(graph3.keys())) # Es posible
+graph = read_input()
+friends_meeting(graph, list(graph.keys())) # Es posible
     
 
 

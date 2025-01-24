@@ -1,0 +1,5 @@
+Juan: Pedro, Maria, Carlos, Ana
+Pedro: Juan, Maria, Carlos, Ana
+Maria: Juan, Pedro, Carlos, Ana
+Carlos: Juan, Pedro, Maria, Ana
+Ana: Juan, Pedro, Maria, Carlos
