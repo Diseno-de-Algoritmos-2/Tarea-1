@@ -89,5 +89,6 @@ if __name__ == '__main__':
 
     # Solicitamos el número de amigos.
     num_amigos = int(input("Ingrese el número de amigos (incluyendo a Juan): "))
+    
     # Creamos el grafo de amistades y lo guardamos.
     crear_grafo_amistades(num_amigos)

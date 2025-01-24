@@ -1,0 +1,4 @@
+Vías que se deben convertir:
+(A a B) - Costo 1
+(B a C) - Costo 2
+(C a D) - Costo 1
