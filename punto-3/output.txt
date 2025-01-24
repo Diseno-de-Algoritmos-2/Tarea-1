@@ -1,0 +1,3 @@
+Es posible organizar las dos reuniones
+Reunion 1: {'Juan', 'Carlos'}
+Reunion 2: {'Pedro', 'Maria'}

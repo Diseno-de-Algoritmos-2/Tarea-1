@@ -1,25 +1,23 @@
-# Grafo1: no es posible organizar las dos reuniones
-graph1 = {
-    'Juan': {'Pedro', 'Maria'},
-    'Pedro': {'Juan'},
-    'Maria': {'Juan', 'Ana'},
-    'Carlos': {'Ana'},
-    'Ana': {'Maria', 'Carlos'}
-}
+# Grafo1: no es posible organizar las dos reuniones.
 
-# Grafo2: es posible organizar las dos reuniones, porque todos son amigos entre si
-graph2 = {
-    'Juan': {'Pedro', 'Maria', 'Carlos', 'Ana'},
-    'Pedro': {'Juan', 'Maria', 'Carlos', 'Ana'},
-    'Maria': {'Juan', 'Pedro', 'Carlos', 'Ana'},
-    'Carlos': {'Juan', 'Pedro', 'Maria', 'Ana'},
-    'Ana': {'Juan', 'Pedro', 'Maria', 'Carlos'}
-}
+Juan: Pedro, Maria
+Pedro: Juan
+Maria: Juan, Ana
+Carlos: Ana
+Ana: Maria, Carlos
 
-# Grafo 3: es posible organizar las dos reuniones (aqui hay dos posibles soluciones)
-graph3 = {
-    'Juan': {'Pedro', 'Maria', 'Carlos'},
-    'Carlos': {'Juan'},
-    'Pedro': {'Juan', 'Maria'},
-    'Maria': {'Juan', 'Pedro'}
-}
+
+# Grafo2: es posible organizar las dos reuniones, porque todos son amigos entre si.
+
+Juan: Pedro, Maria, Carlos, Ana
+Pedro: Juan, Maria, Carlos, Ana
+Maria: Juan, Pedro, Carlos, Ana
+Carlos: Juan, Pedro, Maria, Ana
+Ana: Juan, Pedro, Maria, Carlos
+
+# Grafo 3: es posible organizar las dos reuniones (aqui hay dos posibles soluciones).
+
+Juan: Pedro, Maria, Carlos
+Carlos': Juan
+Pedro': Juan, Maria
+Maria': Juan, Pedro

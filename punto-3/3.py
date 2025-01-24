@@ -33,13 +33,13 @@ import os
 # Obtenemos la ruta del archivo actual (ruta relativa a la ubicación del archivo dentro del computador).
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # Añadimos a la ruta del archivo que se va a leer.
-PATH = os.path.join(current_dir, 'input.txt')
+PATH_READ = os.path.join(current_dir, 'input.txt')
 
 # Función para leer el archivo de texto y obtener los datos de entrada.
 def read_input():
 
     # Abrir el archivo en modo lectura.
-    file = open(PATH, 'r')
+    file = open(PATH_READ, 'r')
 
     # Leer las líneas del archivo.
     lines = file.readlines()
@@ -70,8 +70,35 @@ def read_input():
 # DATOS DE SALIDA
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# La salida cosiste en un archivo de texto llamado output.txt que contiene la información de las reuniones, junto con un mensaje
+# que indica si es posible organizar las dos reuniones. La estructura del archivo es la siguiente:
+#   Es posible organizar las dos reuniones (o en su defecto: No es posible organizar las dos reuniones).
+#   Reunión 1: Amigo1, Amigo2, Amigo3, Amigo4
+#   Reunión 2: Amigo5, Amigo6, Amigo7
+# Para cada reunión, se indica el número de la reunión y los amigos que asistirán a la reunión. Si es posible, no hay lineas de reuniones.
 
+# Añadimos a la ruta del archivo que se va a escribir.
+PATH_WRITE = os.path.join(current_dir, 'output.txt')
 
+# Función para escribir el archivo de texto con los datos de salida.
+def write_output(meetings):
+
+    # Abrir el archivo en modo escritura.
+    file = open(PATH_WRITE, 'w')
+
+    # Primero revisamos si es posible organizar las dos reuniones. Si no es posible, escribimos el mensaje correspondiente.
+    if len(meetings) == 0:
+        file.write('No es posible organizar las dos reuniones\n')
+    
+    # Si es posible, escribimos el debido mensaje y las reuniones (solo se escribem aquellas que contengan al menos una persona).
+    else:
+        file.write('Es posible organizar las dos reuniones\n')
+        for i,meet in enumerate(meetings, 1):
+            if len(meet) >0:
+                file.write(f'Reunion {i}: {meet}\n')
+
+    # Cerramos el archivo.
+    file.close()
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,20 +161,24 @@ def friends_meeting(graph, friendList):
     
     # revisar si ya invitamos a todos los amigos
     if len(meeting1) + len(meeting2) == len(friendList):
-        print('Es posible organizar las dos reuniones\n')
-        print('Reunión 1:')
-        print(meeting1)
-        print('Reunión 2:')
-        print(meeting2)
-        print()
-        
+        print('\nEs posible organizar las dos reuniones.\n')
+        print(f'Reunión 1: {meeting1}.')
+        print(f'Reunión 2: {meeting2}. \n')
+        return [meeting1, meeting2]
+
     else:
-        print('No es posible organizar las dos reuniones')
-        print()
+        print('\nNo es posible organizar las dos reuniones. \n')
+        return []
 
 
-graph = read_input()
-friends_meeting(graph, list(graph.keys())) # Es posible
-    
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# FUNCIÓN PRINCIPAL
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if __name__ == '__main__':
+
+    graph = read_input()
+    meetings = friends_meeting(graph, list(graph.keys())) # Es posible
+    write_output(meetings)    
 
 
