@@ -1,0 +1,46 @@
+# Grafo1
+
+A: (B, 4), (C, 1)
+B: (A, 4), (C, 2), (D, 5)
+C: (A, 1), (B, 2), (D, 2), (F, 10)
+D: (B, 5), (C, 2), (E, 7)
+E: (D, 7), (F, 3)
+F: (C, 10), (E, 3)
+
+# Vias que se deben convertir:
+(A a C) - Costo 1
+(C a B) - Costo 2
+(C a D) - Costo 2
+(D a E) - Costo 7
+(E a F) - Costo 3
+
+# Grafo2
+
+A: (B, 2), (C, 3)
+B: (A, 2), (C, 6), (D, 1)
+C: (A, 3), (B, 6), (D, 4), (F, 5)
+D: (B, 1), (C, 4), (E, 7)
+E: (D, 7), (F, 2)
+F: (C, 5), (E, 2)
+
+# Vias que se deben convertir:
+(A a B) - Costo 2
+(B a D) - Costo 1
+(A a C) - Costo 3
+(C a F) - Costo 5
+(F a E) - Costo 2
+
+
+# Grafo 3: 
+
+A: (B, 2), (C, 4)
+B: (A, 2), (C, 3), (D, 5)
+C: (A, 4), (B, 3), (D, 1)
+D: (B, 5), (C, 1), (E, 6)
+E: (D, 6)
+
+# Vias que se deben convertir:
+(A a B) - Costo 2
+(B a C) - Costo 3
+(C a D) - Costo 1
+(D a E) - Costo 6
