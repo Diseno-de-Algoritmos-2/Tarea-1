@@ -4,7 +4,9 @@ Este repositorio contiene dos ejercicios de grafos (Punto 3 y Punto 5), los cual
 
 ## Autores
 
-- **Juan Camilo Sánchez** - [juancamilosanchez](
+- Vargas Ulloa, Daniel Felipe - d.vargasu@uniandes.edu.co
+- Bobadilla Suarez, Santiago - s.bobadilla@uniandes.edu.co
+- Ariza Lopez, Lina Marcela - l.arizal@uniandes.edu.co
 
 ## Punto 3: Distribución de Amigos en Reuniones
 
@@ -67,7 +69,7 @@ El repositorio contiene los siguientes scripts para resolver el Punto 5:
    - `output.txt`: Guarda el resultado, indicando qué vías deben convertirse a doble vía y el costo asociado a la conversión (Su estructura se detalla en el archivo main.py del punto 5).
 
 2. **Generador de Grafos (Ubicado en /generador-grafos)**:
-   - `graph_generator.py`: Genera un grafo aleatorio que representa las vías de la ciudad, sus conexiones y los costos, y lo guarda en el archivo `input.txt`. Su uso es **opcional**, y su intención es facilitar la creación de casos de prueba, pero no es necesario para la ejecución del algoritmo.
+   - `grafo_punto_5.py`: Genera un grafo aleatorio que representa las vías de la ciudad, sus conexiones y los costos, y lo guarda en el archivo `input.txt`. Su uso es **opcional**, y su intención es facilitar la creación de casos de prueba, pero no es necesario para la ejecución del algoritmo.
 
 ### Ejemplo (Punto 5)
 
