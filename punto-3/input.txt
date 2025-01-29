@@ -1,5 +1,4 @@
-Juan: Amigo_1, Amigo_2, Amigo_3, Amigo_4
-Amigo_1: Juan, Amigo_2, Amigo_3, Amigo_4
-Amigo_2: Juan, Amigo_1, Amigo_4
-Amigo_3: Juan, Amigo_1
-Amigo_4: Juan, Amigo_1, Amigo_2
+Amigo_1: Amigo_2, Amigo_3, Amigo_4
+Amigo_2: Amigo_1, Amigo_3, Amigo_4
+Amigo_3: Amigo_1, Amigo_2
+Amigo_4: Amigo_1, Amigo_2

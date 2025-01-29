@@ -36,18 +36,17 @@ def crear_grafo_amistades(num_amigos):
     # Creamos un grafo vacío.
     G = nx.Graph()
     
-    # Generamos los nodos del grafo. Estos son Juan y sus amigos.
-    nombres = ['Juan'] + [f'Amigo_{i}' for i in range(1, num_amigos)]
+    # Generamos los nodos del grafo. Estos son los amigos de Juan (SIN JUAN).
+    # Se generan con nombres de la forma 'Amigo_i'.
+    nombres = [f'Amigo_{i}' for i in range(1, num_amigos)]
     G.add_nodes_from(nombres)
+
     
-    # Juan conoce a todos sus amigos.
-    for i in range(1, len(nombres)):
-        G.add_edge('Juan', nombres[i])
-    
-    # LOs amigos entre sí estan conectados por un eje con probabilidad del 50%.
-    for i in range(1, len(nombres)):
+    # Los amigos entre sí estan conectados por un eje con probabilidad del 80%.
+    # arbitrariamente escogemos que haya una probabilidad del 20% de que si se peleen.
+    for i in range(len(nombres)):
         for j in range(i + 1, len(nombres)):
-            if random.random() < .5:
+            if random.random() < .8:
                 G.add_edge(nombres[i], nombres[j])
     
     # Dibujamos el grafo vacio.
@@ -88,7 +87,7 @@ def crear_grafo_amistades(num_amigos):
 if __name__ == '__main__':
 
     # Solicitamos el número de amigos.
-    num_amigos = int(input("Ingrese el número de amigos (incluyendo a Juan): "))
+    num_amigos = int(input("Ingrese el número de amigos (sin contar a Juan): "))
     
     # Creamos el grafo de amistades y lo guardamos.
     crear_grafo_amistades(num_amigos)

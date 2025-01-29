@@ -1,4 +1,6 @@
 Vias que se deben convertir:
-(A a B) - Costo 1
-(B a C) - Costo 2
-(C a D) - Costo 1
+(A a F) - Costo 4
+(A a E) - Costo 5
+(A a C) - Costo 7
+(C a B) - Costo 10
+(B a D) - Costo 7

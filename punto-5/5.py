@@ -105,8 +105,15 @@ def write_output(mst):
 
 # Estrategia:
 
-# 1. Esto es basicamente un mst. Se puede usar el algoritmo de Prim para encontrar el árbol de expansión
+# La solución a este problema es basicamente un mst. Se puede usar el algoritmo de Prim para encontrar el árbol de expansión
 # minimom que es el minimo costo para que todos los nodos estén conectados.
+
+# Explicación de porque el MST es la solución:
+# Dado que queremos que todos los nodos estén conectados por doble vía y que el costo sea el mínimo posible, podemos
+# pensar en el grafo como un grafo no dirigido, donde cada arista tiene un peso que representa el costo de convertir esa
+# vía en doble vía. Si encontramos el árbol de expansión mínima de este grafo, entonces habremos encontrado la solución
+# que conecta todos los nodos con el menor costo posible.
+
 
 import heapq # Priority Queue
 

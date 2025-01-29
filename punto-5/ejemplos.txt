@@ -1,3 +1,7 @@
+
+# La siguiente es una lista de ejemplos de grafos que pueden ser insertados manualmente en
+# el archivo de input, para probar el programa.
+
 # Grafo1
 
 A: (B, 6), (D, 1), (E, 7)

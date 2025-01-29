@@ -20,12 +20,16 @@
 
 # La entrada consiste en un archivo de texto llamado input.txt que contiene la información.
 # La estructura del archivo es la siguiente:
-#   Nodo: Amigo1: Amigo2, Amigo3, Amigo4, Amigo5
-#   Nodo: Amigo1: Amigo3, Amigo4
-#   Nodo: Amigo1: Amigo2
-# Para cada línea, el primer amigo es el nodo y los amigos que le siguen son los amigos.
+#   Amigo1: Amigo2, Amigo4, Amigo5
+#   Amigo2: Amigo3, Amigo1
+#   Amigo3: Amigo2
+#   ...
+# Para cada línea, el primer amigo es el nodo y la lista de amigos que le siguen son los amigos con quienes no está peleado.
 # por tanto, para leer el archivo vamos linea por linea y separamos el nodo de los amigos
 # con el caracter ':'. Luego separamos los amigos con el caracter ','.
+
+# Nota: Juan, el dueño del apartamento, no está incluido en la lista de amigos. se asume que
+# Juan no se ha peleado con ninguno de sus amigos (pues de lo contrario no podría invitarlos).
 
 
 import os
@@ -73,8 +77,11 @@ def read_input():
 # La salida cosiste en un archivo de texto llamado output.txt que contiene la información de las reuniones, junto con un mensaje
 # que indica si es posible organizar las dos reuniones. La estructura del archivo es la siguiente:
 #   Es posible organizar las dos reuniones (o en su defecto: No es posible organizar las dos reuniones).
+#   En caso de ser posible, se indican las reuniones de la siguiente forma:
 #   Reunión 1: Amigo1, Amigo2, Amigo3, Amigo4
 #   Reunión 2: Amigo5, Amigo6, Amigo7
+
+# Nota: En caso de organizar una reunión vacia, se denotará como un set vacio 'set()'.
 # Para cada reunión, se indica el número de la reunión y los amigos que asistirán a la reunión. Si es posible, no hay lineas de reuniones.
 
 # Añadimos a la ruta del archivo que se va a escribir.
